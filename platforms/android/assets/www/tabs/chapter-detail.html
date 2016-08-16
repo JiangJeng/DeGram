@@ -1,0 +1,41 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+
+<ion-view view-title="{{chapter.title}}" style="width: 100%">
+    <ion-content class="padding">
+
+
+    <div class="row" width="device-width" >
+        <div ng-bind-html="lecture.name | highlight:'Verben'" ></div>
+    </div>
+<div class="row" width="device-width" >
+    <table width="100%">
+
+      <tbody ng-repeat="content in lecture.contents| filter:'Verben'">
+      <!--
+      <tr ng-repeat="lecture1 in lectures">
+          <td ng-bind-html="lecture1.name"></td>
+      </tr>
+      -->
+      <tr><td ng-bind-html="content.form | highlight:'Person'"></td></tr>
+
+      <tr><td ng-bind-html="content.comments | highlight:'Verben'"></td></tr>
+      <tr><td><i class = "icon icon ion-happy-outline"></i>
+          <button type="button" ng-click="showPopup(lecture.id)" >Show Popup</button>
+
+      </td></tr>
+
+      </tbody>
+
+        </table>
+    </div >
+        <div ng-bind-html="mynote | highlight:'Verben'"></div>
+
+
+</div>
+  </ion-content>
+</ion-view>

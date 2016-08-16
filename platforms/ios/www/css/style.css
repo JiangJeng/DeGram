@@ -1,0 +1,81 @@
+/* Empty. Add your own CSS if you like */
+body {
+    cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+}
+.row{
+    flex-wrap: wrap;
+    -webkit-box-flex: 0 !important;
+    -moz-box-flex: 0 !important;
+    -webkit-flex: 0 1 50% !important;
+    -ms-flex: 0 1 50% !important;
+    flex: 0 1 50% !important;
+}
+
+.col{
+    box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+.col.clock.ng-enter-stagger {
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+.col.clock.ng-enter {
+    transition: 0.25s linear all;
+    transform: rotate(50deg);
+    opacity: 0;
+}
+.col.clock.ng-enter.ng-enter-active {
+    transform: rotate(0deg);
+    opacity: 1;
+}
+.highlightedText {
+    background: yellow;
+}
+.ui-match {
+    background-color: #CEF;
+}
+.user-thumb {
+    height: 40px;
+}
+.highlighted { background: yellow }
+.box-container {
+    height: auto;
+    width: 80%;
+    float: left;
+}
+
+.box-header {
+    background: #DDDDDD;
+    border: 1px solid #ccc;
+
+
+    border-top-left-radius:     20px 20px;
+    border-bottom-right-radius: 20px 20px;
+
+    margin:-15px;
+    padding-top: 15px;
+    padding-left: 15px;
+
+    border-left-width: 0px;
+    border-top-width: 0px;
+    color: #468259;
+}
+
+.box {
+    background: #dfe6ac;
+    border: 1px solid #ccc;
+    padding: 15px;
+
+
+    border-top-left-radius:     20px 20px;
+    border-bottom-right-radius: 20px 20px;
+
+    width: 100%;
+}

@@ -1,0 +1,32 @@
+<ion-view view-title="Content">
+  <ion-content>
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="bildworter in bildworterlst" type="item-text-wrap" href="#/tab/bildworter/{{bildworter.id}}">
+        <img ng-src="{{bildworter.img}}">
+        <h2>{{bildworter.title}}</h2>
+        <p>{{bildworter.exercise}}</p>
+
+      </ion-item>
+    </ion-list>
+<!--
+    <div class="container">
+      <div ng-repeat="chapter in chapters" ng-if="$index%3==0" class="row">
+        <span ng-if="$index<chapters.length" style="float: left">{{chapters[$index].title}}</span>
+        <span ng-if="($index+1)<chapters.length" style="float: left">{{chapters[$index+1].title}}</span>
+        <span ng-if="($index+2)<chapters.length" style="float: left">{{chapters[$index+2].title}}</span>
+      </div>
+    </div>
+-->
+    <!--
+     <div>Quick Search</div>
+      <div class="row">
+        <div class="col col-50" ng-repeat="chapter in chapters">
+
+         <h2> {{chapter.title}}</h2>
+          <p>{{chapter.exercise}}</p>
+
+        </div>
+      </div>
+    -->
+  </ion-content>

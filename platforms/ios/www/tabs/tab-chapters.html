@@ -1,0 +1,33 @@
+<ion-view view-title="Content">
+
+  <ion-content>
+      <div>
+          <label>
+              <i class="icon ion-search placeholder-icon"></i>
+              <input type="search" ng-model="searchTerm" placeholder="Search for post">
+          </label>
+      </div>
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chapter in chapters| filter: searchTerm" type="item-text-wrap" href="#/tab/chapters/:{{chapter.id}}/:{{searchTerm}}">
+        <img ng-src="{{chapter.img}}">
+        <h2>{{chapter.title}}</h2>
+        <p>{{chapter.exercise}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chapter)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+      <ion-list>
+          <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="note in mynotes| filter: searchTerm" type="item-text-wrap" href="#/tab/chapters/:{{note.id}}/:{{searchTerm}}">
+
+              <h2>{{note.id}}</h2>
+              <p>{{note.notes}}</p>
+
+          </ion-item>
+      </ion-list>
+
+  </ion-content>
+</ion-view>

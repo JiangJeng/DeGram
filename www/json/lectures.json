@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "childlst":[1,2,3,4],
+    "name": "Verben",
+    "contents": [
+      {
+        "no":1,
+        "form": "<table class=\"responstable\"><thead><tr><th></th><th>Singular</th><th>Plural</th></tr></thead><tbody><tr><td>1.Person</td><td>ich wohne</td><td>wir wohnen</td></tr><tr><td>2.Person</td><td>du wohnst</td><td>ihr wohnt</td></tr><tr><td>3.Person</td><td>er/es/sie wohnt</td><td>Sie/sie wohnen</td></tr></tbody></table>",
+        "comments": "Die Formen haben einen Verbstamm und eine Verbendung:<br> wohn- = Verbstamm, -e = Verbendung (ich wohne).",
+        "notes":"<div class=\"box-container\"><div class=\"box\"><div class=\"box-header\"><p> My Notes</p></div><div><br>sdfsdfsdfsdfVerbensdfsdfsdf</div></div></div>"
+      },
+      {
+        "no":2,
+        "form": "sdfsdfsdfsdf2",
+        "comments": "comVerbenments2",
+        "notes":"sdfsdfsdfsdafasdfsdfsdfsfVerbensdfsdfs"
+      }
+     ]
+
+  },{
+  "id": 2,
+  "childlst":[],
+  "name": "Prasen Verben",
+  "contents": [
+    {
+      "no":1,
+      "form": "<table class=\"responstable\"><thead><tr><th></th><th>Singular</th><th>Plural</th></tr></thead><tbody><tr><td>1.Person</td><td>ich wohne</td><td>wir wohnen</td></tr><tr><td>2.Person</td><td>du wohnst</td><td>ihr wohnt</td></tr><tr><td>3.Person</td><td>er/es/sie wohnt</td><td>Sie/sie wohnen</td></tr></tbody></table>",
+      "comments": "Die Formen haben einen Verbstamm und eine Verbendung:<br> wohn- = Verbstamm, -e = Verbendung (ich wohne)."
+    },
+    {
+      "no":2,
+      "form": "sdfsdfsdfsdf2",
+      "comments": "comVerbenments2"
+    }
+  ]
+    }
+  ]

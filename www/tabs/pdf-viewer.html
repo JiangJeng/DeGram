@@ -1,0 +1,27 @@
+<div ng-show="notLoaded" class=" center bar bar-subheader">
+  <h1 class="title">Loading PDF...</h1>
+</div>
+<div class="tabs tabs-icon-left">
+  <a class="tab-item" ng-click="goPrevious()">
+    <i class="icon ion-arrow-left-c"></i>
+    Prev
+  </a>
+  <a class="tab-item" ng-click="goNext()">
+    <i class="icon ion-arrow-right-c"></i>
+    Next
+  </a>
+</div>
+
+<ion-scroll zooming="true" direction="xy" class="has-header">
+  <canvas class="padding" id="pdf" class="rotate0"></canvas>
+</ion-scroll>
+
+<ion-view>
+  <div class="bar bar-header bar-positive">
+    <button ng-click="$ionicGoBack()" class="button button-clear button-light icon-left ion-chevron-left">Go Back</button>
+  </div>
+  <div class="has-header">
+    <ng-pdf template-url="components/pdfviewer/viewer.html" canvasid="pdf" scale="0.675">
+    </ng-pdf>
+  </div>
+</ion-view>
