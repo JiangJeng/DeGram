@@ -182,7 +182,26 @@ angular.module('gramlist.services', ['ngCordova'])
 
     })
 */
+    .factory('Lecutres',function(){
+        return {
+            all: function($http) {
+                $http.get("json/lectures.json").success(function (lectureall) {
+                    alert("Total lectures: "+lectureall.length);
+                    return lectureall;
+                });
+            },get: function(findId,$http) {
+                $http.get("json/lectures.json").success(function (lectureall) {
+                    for (var i = 0; i < lectureall.length; i++) {
+                        if (parseInt(lectureall[i].id) === parseInt(findId)) {
+                            return lectureall[i];
+                        }
+                    }
+                });
+            }
+        };
 
+
+})
 .factory('Bildworter', function() {
   // Might use a resource here that returns a JSON array
 

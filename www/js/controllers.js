@@ -1,24 +1,33 @@
 angular.module('gramlist.controllers', ['ngCordova'])
     .controller('DashCtrl', function($scope) {})
-    .controller('IndexCtrl', function($scope,Chapters,$cordovaFile) {
+    .controller('IndexCtrl', function($scope,Chapters,$http,$cordovaFile) {
+        //$scope.Chapters = Chapters.all();
         var jsondata="";
-        $scope.chapters = Chapters.all();
-        $scope.remove = function(chapter) {
-            Chapters.remove(chapter);
+
+        $http.get("json/index.json").success(function (lectureall) {
+            $scope.Chapters = lectureall;
+            //alert("Total lectures: "+lectureall.length);
+
+        });
+        $scope.toggleGroup = function(group) {
+            if ($scope.isGroupShown(group)) {
+                $scope.shownGroup = null;
+            } else {
+                $scope.shownGroup = group;
+            }
+        };
+        $scope.isGroupShown = function(group) {
+            return $scope.shownGroup === group;
         };
 
-        //$scope.getNotes = function() {
-            document.addEventListener('deviceready', function () {
-                //alert("Dir: " + cordova.file.dataDirectory);
-                // read mynotes if exist
+        document.addEventListener('deviceready', function () {
                 $cordovaFile.readAsText(cordova.file.dataDirectory, 'mynotes.json').then(function (success) {
-                    //alert("mynotes exist and the content is: " + JSON.stringify(success));
                     jsondata = success;
-                    //return JSON.parse(jsondata);
                     $scope.mynotes =JSON.parse(jsondata);
+                    //alert("Read Note Json in Index: " + JSON.stringify(jsondata));
                 }, function (error) {
-                    //alert("read mynotes failed with error code as: " + error);
                     if (jsondata === "") {
+                        /*
                         jsondata = [{
                             id: 1,
                             notes: "note1"
@@ -27,9 +36,11 @@ angular.module('gramlist.controllers', ['ngCordova'])
                             id: 2,
                             notes: "note2"
                         }];
+                        */
+                        jsondata = InitNotes.all();
                         //alert("Set mynotes as: " + JSON.stringify(jsondata));
                         $cordovaFile.createFile(cordova.file.dataDirectory, 'mynotes.json', false).then(function (result) {
-                            //alert("Create Note Json: " + JSON.stringify(result));
+                            //alert("Create Note Json in Index: " + JSON.stringify(result));
                         });
                         $cordovaFile.writeFile(cordova.file.dataDirectory, 'mynotes.json', JSON.stringify(jsondata), true).then(function (result) {
                             //alert("Initialize Note Json: " + JSON.stringify(jsondata));
@@ -39,30 +50,92 @@ angular.module('gramlist.controllers', ['ngCordova'])
                     }
                 });
             });
-        //};
-        //$scope.mynotes = $scope.getNotes();
 })
+    
+    .controller('SearchCtrl', function($scope,Chapters,InitNotes,$http,$cordovaFile) {
+        //$scope.Chapters = Chapters.all();
+
+
+        var jsondata="";
+        $http.get("json/lectures.json").success(function (lectureall) {
+            $scope.Chapters = lectureall;
+            //alert("Total lectures: "+lectureall.length);
+
+        });
+        document.addEventListener('deviceready', function () {
+            $cordovaFile.readAsText(cordova.file.dataDirectory, 'mynotes.json').then(function (success) {
+                jsondata = success;
+                $scope.mynotes =JSON.parse(jsondata);
+                //alert("Read Note Json in Index: " + JSON.stringify(jsondata));
+            }, function (error) {
+                if (jsondata === "") {
+                    jsondata = InitNotes.all();
+                    //alert("Set mynotes as: " + JSON.stringify(jsondata));
+                    $cordovaFile.createFile(cordova.file.dataDirectory, 'mynotes.json', false).then(function (result) {
+                        //alert("Create Note Json in Search: " + JSON.stringify(result));
+                    });
+                    $cordovaFile.writeFile(cordova.file.dataDirectory, 'mynotes.json', JSON.stringify(jsondata), true).then(function (result) {
+                        //alert("Initialize Note Json: " + JSON.stringify(jsondata));
+                    });
+                    //return JSON.parse(jsondata);
+                    $scope.mynotes =JSON.parse(jsondata);
+                }
+            });
+            //alert("Total Notes: "+jsondata.length);
+        });
+
+    })
     .controller('ChapterDetailCtrl', function($scope, $stateParams,Chapters,$http,$log,$ionicPopup,$cordovaFile) {
 
 
-            $scope.chapter = Chapters.get($stateParams.chapterId);
-            $scope.mynote ="Please enter your note here";
-            $scope.hlText=JSON.stringify($stateParams.searchTerm);
-            $scope.showPopup = function(findId) {
-                $scope.data = {};
-                var jsondata="";
+            //$scope.chapter = Chapters.get($stateParams.chapterId);
+            //$scope.mynote = "Please enter your note here";
+            $scope.hlText = $stateParams.searchTerm;
+
+        document.addEventListener('deviceready', function () {
+        $http.get("json/lectures.json").success(function (lectureall) {
+            //alert("lecture: " + lectureall.length);
+            $scope.lectures = lectureall;
+                for (var i = 0; i < lectureall.length; i++) {
+                    //alert("lectureId: " + lectureall[i].id+ "lectureName: "+lectureall[i].name);
+                    if (parseInt(lectureall[i].id) === parseInt($stateParams.chapterId)) {
+                        $scope.lecture = lectureall[i];
+                        //alert("lecture: " + $scope.lecture);
+                    }
+                }
+            });
+        $cordovaFile.readAsText(cordova.file.dataDirectory, 'mynotes.json').then(function (result) {
+            //alert("notes: " + result);
+            if (result != null) {
+                var dispnotes = JSON.parse(result);
+                for (var i = 0; i < dispnotes.length; i++) {
+                    if (dispnotes[i].id == $stateParams.chapterId) {
+                        $scope.mynote = dispnotes[i].notes;
+                        $scope.newNote= dispnotes[i].notes;
+                        //alert("mynote: " + $scope.mynote);
+                    }
+                }
+
+            }
+        });
+            $scope.editNote = function (findId) {
+                //alert("newNote:"+$scope.newNote);
+            };
+            $scope.saveNote = function (findId) {
+               // $scope.data = {};
+                var jsondata = "";
                 $ionicPopup.show({
-                    template: '<input name="newText" type="username">',
-                    title: 'Enter Username',
+                    template: 'Do you want to update your note?',
+                    title: 'Confirm',
                     scope: $scope,
                     buttons: [
-                        { text: 'Cancel' },
+                        {text: 'Cancel'},
                         {
-                            text: '<b>Save</b>',
+                            text: '<b>Yes</b>',
                             type: 'button-positive',
-                            onTap: function(e) {
+                            onTap: function (e) {
                                 document.addEventListener('deviceready', function () {
-                                    $cordovaFile.readAsText(cordova.file.dataDirectory,'mynotes.json').then( function(result) {
+                                    $cordovaFile.readAsText(cordova.file.dataDirectory, 'mynotes.json').then(function (result) {
                                         //alert("Read mynotes.json: "+result);
                                         jsondata = JSON.parse(result);
                                         //update notes.json
@@ -72,13 +145,14 @@ angular.module('gramlist.controllers', ['ngCordova'])
                                             //alert("old note of id("+jsondata[i].id+"): "+jsondata[i].notes);
                                             if (jsondata[i].id == findId) {
 
-                                                jsondata[i].notes = "newText"+jsondata[i].id;
+                                                jsondata[i].notes = $scope.newNote;
+                                                alert("newNote:"+$scope.newNote);
                                                 $cordovaFile.writeFile(cordova.file.dataDirectory, 'mynotes.json', JSON.stringify(jsondata), true).then(function (result) {
-                                                    //alert("new note of id("+jsondata[i].id+"): "+jsondata[i].notes);
-                                                    $scope.mynote=jsondata[i].notes
+                                                    alert("new note of id("+jsondata[i].id+"): "+jsondata[i].notes);
+                                                    $scope.mynote = jsondata[i].notes
                                                     //$log.debug("Write new text: " +result.length);
                                                 });
-                                                $cordovaFile.readAsText(cordova.file.dataDirectory,'mynotes.json').then( function(result) {
+                                                $cordovaFile.readAsText(cordova.file.dataDirectory, 'mynotes.json').then(function (result) {
                                                     //alert("mynotes:"+result);
                                                 });
                                                 break;
@@ -92,33 +166,59 @@ angular.module('gramlist.controllers', ['ngCordova'])
                         }
                     ]
                 });
-            }
-            alert("chapterId: "+$stateParams.chapterId+" highlight: "+$stateParams.searchTerm);
+            };
 
-        $http.get("json/lectures.json").success(function(lectureall) {
-            $scope.lectures = lectureall;
-            for (var i = 0; i < lectureall.length; i++) {
-                if (lectureall[i].id === parseInt($stateParams.chapterId)) {
-                    $scope.lecture = lectureall[i];
-                    alert("lecture: "+$scope.lecture);
+        $scope.showPopup = function (findId) {
+            $scope.data = {};
+            var jsondata = "";
+            $ionicPopup.show({
+                template: '<input type="text" ng-model="data.nwNote" />',
+                title: 'Edit Note',
+                scope: $scope,
+                buttons: [
+                    {text: 'Cancel'},
+                    {
+                        text: '<b>Save</b>',
+                        type: 'button-positive',
+                        onTap: function (e) {
+                            document.addEventListener('deviceready', function () {
+                                $cordovaFile.readAsText(cordova.file.dataDirectory, 'mynotes.json').then(function (result) {
+                                    //alert("Read mynotes.json: "+result);
+                                    jsondata = JSON.parse(result);
+                                    //update notes.json
+                                    for (var i = 0; i < jsondata.length; i++) {
+                                        //$log.debug("jsondata.length: " + jsondata.length);
+                                        //alert("upate note id : "+findId);
+                                        //alert("old note of id("+jsondata[i].id+"): "+jsondata[i].notes);
+                                        if (jsondata[i].id == findId) {
+                                            alert("new note "+$scope.data.nwNote);
 
+                                            jsondata[i].notes = $scope.data.nwNote;
 
-                }
-            }
+                                            //jsondata[i].notes = "newText" + jsondata[i].id;
+                                            $cordovaFile.writeFile(cordova.file.dataDirectory, 'mynotes.json', JSON.stringify(jsondata), true).then(function (result) {
+                                                //alert("new note of id("+jsondata[i].id+"): "+jsondata[i].notes);
+                                                $scope.mynote = jsondata[i].notes
+                                                //$log.debug("Write new text: " +result.length);
+                                            });
+                                            $cordovaFile.readAsText(cordova.file.dataDirectory, 'mynotes.json').then(function (result) {
+                                                //alert("mynotes:"+result);
+                                            });
+                                            //$scope.refreshData();
+                                            break;
+                                        }
 
-        });
-            $cordovaFile.readAsText(cordova.file.dataDirectory, 'mynotes.json').then(function (result) {
-                if (result != null) {
-                    var dispnotes = JSON.parse(result);
-                    for (var i = 0; i < dispnotes.length; i++) {
-                        if (dispnotes[i].id == $stateParams.chapterId) {
-                            $scope.mynote = dispnotes[i].notes;
-                            alert("mynote: " +$scope.mynote);
+                                    }
+
+                                });
+                            });
                         }
                     }
-
-                }
+                ]
             });
+        };
+
+        });
 
 
     })

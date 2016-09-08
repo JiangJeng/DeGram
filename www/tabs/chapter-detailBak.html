@@ -1,0 +1,108 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+
+
+<ion-view view-title="{{lecture.name}}" style="width: 100%">
+    <ion-content class="padding">
+
+
+    <div class="row" width="device-width" >
+        <div ng-bind-html="lecture.name |highlight:hlText " ></div>
+    </div>
+        <div class="row" width="device-width" >
+            <i class = "icon icon ion-happy-outline"></i>
+            <button type="button" ng-click="showPopup(lecture.id)" >Edit Notes</button>
+            <!--<button type="button" ng-click="saveNote(lecture.id)" >Save Notes</button>-->
+        </div>
+
+
+
+        <div class="row" width="device-width" >
+            <div ng-bind-html="mynote |highlight:hlText"></div>
+        </div>
+
+                <div class="row" width="device-width" class="responstable">
+
+                <table width="100%" >
+                <tbody ng-repeat="content in lecture.contents" >
+                <tr><td ng-bind-html="content.form | highlight:hlText"></td></tr>
+                <tr><td ng-bind-html="content.comments | highlight:hlText"></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+
+<!--
+        <div class="row" width="device-width" >
+
+            <input type="search" ng-model="newNote" placeholder="My notes">
+            <span class="valueItems"><strong>MyNotes:</strong> {{newNote}}</span>
+        </div>
+-->
+    </ion-content>
+</ion-view>
+<ion-view view-title="Timelines">
+
+    <ion-content class="has-header">
+
+
+
+        <div class="list card">
+
+            <div class="item item-avatar">
+
+                <img src="http://placehold.it/50x50">
+
+                <h2>Some title</h2>
+
+                <p>November 05, 1955</p>
+
+            </div>
+
+            <div class="item item-body">
+
+                <img class="full-image" src="http://placehold.it/500x500">
+
+                <p>
+
+                    <a href="#" class="subdued">1 Like</a>
+
+                    <a href="#" class="subdued">5 Comments</a>
+
+                </p>
+
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+
+                <a class="tab-item" href="#">
+
+                    <i class="icon ion-heart"></i> Like
+
+                </a>
+
+                <a class="tab-item" href="#">
+
+                    <i class="icon ion-chatbox"></i> Comment
+
+                </a>
+
+                <a class="tab-item" href="#">
+
+                    <i class="icon ion-share"></i> Share
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+    </ion-content>
+
+</ion-view>

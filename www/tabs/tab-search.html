@@ -1,0 +1,35 @@
+<ion-view view-title="QuickFind">
+
+  <ion-content>
+      <div class="bar bar-header item-input-inset">
+          <label class="item-input-wrapper">
+              <i class="icon ion-ios-search placeholder-icon"></i>
+              <input type="search" ng-model="searchTerm" placeholder="Search">
+          </label>
+
+      </div>
+
+      <table width="100%" >
+          <tbody ng-repeat="content in lecture.contents" >
+          <tr><td ng-bind-html="content.form | highlight:hlText"></td></tr>
+          <tr><td ng-bind-html="content.comments | highlight:hlText"></td></tr>
+          </tbody>
+      </table>
+      <table width="100%" >
+          <tbody ng-repeat="Chapter in Chapters| filter: searchTerm" >
+          <tr>
+              <!--<td>{{Chapter.id}}</td> -->
+              <td><a ng-href="#/tab/chapters/{{Chapter.id}}/{{searchTerm}}">{{Chapter.name}}</a></td></tr>
+          </tbody>
+      </table>
+      <table width="100%" >
+          <tbody ng-repeat="note in mynotes| filter: searchTerm" >
+          <tr><td><a ng-href="#/tab/chapters/{{note.id}}/{{searchTerm}}">Note{{note.id}}: {{note.notes}}</a></td>
+              <!--<td>{{note.notes}}</a></td>-->
+          </tr>
+          </tbody>
+      </table>
+
+
+  </ion-content>
+</ion-view>

@@ -89,100 +89,93 @@ angular.module('gramlist.services', ['ngCordova'])
     }
   };
 })
+    .factory('InitNotes', function() {
+        // Might use a resource here that returns a JSON array
 
-/*
+        // Some fake testing data
+        notes = [{
+            id: 1,
+            notes: "note1"
 
-    .factory('Readjson', function($cordovaFile){
-      //create notes.json if not exist
-      //alert("[Dir]: ");
+        }, {
+            id: 2,
+            notes: "note2"
+        }, {
+            id: 3,
+            notes: "note2"
+        }, {
+            id: 4,
+            notes: "note2"
+        }, {
+            id: 5,
+            notes: "note2"
+        }, {
+            id: 6,
+            notes: "note2"
+        }, {
+            id: 7,
+            notes: "note2"
+        }, {
+            id: 8,
+            notes: "note2"
+        }, {
+            id: 9,
+            notes: "note2"
+        }, {
+            id: 10,
+            notes: "note2"
+        }, {
+            id: 11,
+            notes: "note2"
+        }, {
+            id: 12,
+            notes: "note2"
+        }, {
+            id: 13,
+            notes: "note2"
+        }, {
+            id: 14,
+            notes: "note2"
+        }, {
+            id: 15,
+            notes: "note2"
+        }, {
+            id: 16,
+            notes: "note2"
+        }, {
+            id: 17,
+            notes: "note2"
+        }, {
+            id: 18,
+            notes: "note2"
+        }];
 
-
-       //initialization notes.json for empty notes.json
-       var jsondata="";
-      jsondata = [{
-        id: 1,
-        notes: "note1"
-
-      }, {
-        id: 2,
-        notes: "note2"
-      }];
-
-      $cordovaFile.readAsText(cordova.file.dataDirectory,'mynotes.json').then( function(result) {
-       //alert("Read mynotes.json: "+result);
-       if(result!=null) {
-       jsondata = result;
-       //alert("set jsondata: "+jsondata);
-
-       }
-       });
-       alert("current jsondata is: "+jsondata);
-       if(jsondata=="") {
-       jsondata = [{
-       id: 1,
-       notes: "note1"
-
-       }, {
-       id: 2,
-       notes: "note2"
-       }];
-
-       alert("After initialization: "+JSON.stringify(jsondata));
-       $cordovaFile.writeFile(cordova.file.dataDirectory, 'mynotes.json', JSON.stringify(jsondata), true).then(function (result) {
-       alert("write jsondata into file"+JSON.stringify(jsondata));
-       $scope.mynotes=jsondata;
-       //$log.debug("Write new text: " +result.length);
-       });
-*/
-/*
-         function readFromFile(fileName, cb) {
-           var pathToFile = cordova.file.dataDirectory + fileName;
-           window.resolveLocalFileSystemURL(pathToFile, function (fileEntry) {
-             fileEntry.file(function (file) {
-               var reader = new FileReader();
-
-               reader.onloadend = function (e) {
-                 cb(JSON.parse(this.result));
-               };
-
-               reader.readAsText(file);
-             }, fail);
-           }, fail);
-         }
-      function fail(evt) {
-
-      }
-
-
-
-
-
-
-
-
-
-
-      return {
-        getAllNotes: function() {
-/*
-          readFromFile('mynotes.json', function (data) {
-            alert("mynotes: "+data);
-            jsondata = data;
-          });
-
-          $cordovaFile.readAsText(cordova.file.dataDirectory,'mynotes.json').then( function(result) {
-            alert("Read mynotes.json: "+result);
-            jsondata = result;
-
-          },function(err){alert("failed");});
-
-          return jsondata;
-        }
-      };
-
+        return {
+            all: function() {
+                return notes;
+            }
+        };
     })
-*/
+    .factory('Lecutres',function(){
+        return {
+            all: function($http) {
+                $http.get("json/lectures.json").success(function (lectureall) {
+                    alert("Total lectures: "+lectureall.length);
+                    return lectureall;
+                });
+            },get: function(findId,$http) {
+                $http.get("json/lectures.json").success(function (lectureall) {
+                    for (var i = 0; i < lectureall.length; i++) {
+                        if (parseInt(lectureall[i].id) === parseInt(findId)) {
+                            return lectureall[i];
+                        }
+                    }
+                });
+            }
+        };
 
+
+})
 .factory('Bildworter', function() {
   // Might use a resource here that returns a JSON array
 

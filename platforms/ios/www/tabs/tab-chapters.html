@@ -1,33 +1,57 @@
 <ion-view view-title="Content">
 
   <ion-content>
-      <div>
-          <label>
-              <i class="icon ion-search placeholder-icon"></i>
-              <input type="search" ng-model="searchTerm" placeholder="Search for post">
-          </label>
-      </div>
 
-    <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chapter in chapters| filter: searchTerm" type="item-text-wrap" href="#/tab/chapters/:{{chapter.id}}/:{{searchTerm}}">
-        <img ng-src="{{chapter.img}}">
-        <h2>{{chapter.title}}</h2>
-        <p>{{chapter.exercise}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
 
-        <ion-option-button class="button-assertive" ng-click="remove(chapter)">
-          Delete
-        </ion-option-button>
-      </ion-item>
-    </ion-list>
+      <table width="100%" >
+          <tbody ng-repeat="content in lecture.contents" >
+          <tr><td ng-bind-html="content.form | highlight:hlText"></td></tr>
+          <tr><td ng-bind-html="content.comments | highlight:hlText"></td></tr>
+          </tbody>
+      </table>
+      <!--
+      <table width="100%" >
+          <tbody ng-repeat="Chapter in Chapters| filter: searchTerm" >
+          <tr>
+              <td>{{Chapter.id}}</td>
+              <td><a ng-href="#/tab/chapters/{{Chapter.id}}/{{searchTerm}}">{{Chapter.name}}</a></td></tr>
+          </tbody>
+      </table>
+-->
       <ion-list>
-          <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="note in mynotes| filter: searchTerm" type="item-text-wrap" href="#/tab/chapters/:{{note.id}}/:{{searchTerm}}">
+          <div ng-repeat="chapter in Chapters">
+              <ion-item class="item-stable"
+                        ng-click="toggleGroup(chapter)"
+                        ng-class="{active: isGroupShown(chapter)}">
+                  <i class="icon" ng-class="isGroupShown(chapter) ? 'ion-minus' : 'ion-plus'"></i>
+                  &nbsp;
+                  Unit {{chapter.name}}
+              </ion-item>
+              <ion-item class="item-accordion"
+                        ng-repeat="item in chapter.childlst"
+                        ng-show="isGroupShown(chapter)"  href="#/tab/chapters/{{item.id}}/">
+                  {{item.name}}
+              </ion-item>
+          </div>
+      </ion-list>
+<!--
+      <ion-list>
+          <ion-item class="chapterlst-content" ng-repeat="Chapter in Chapters| filter: searchTerm" type="item-text-wrap" href="#/tab/chapters/{{Chapter.id}}/{{searchTerm}}">
+              <p>{{Chapter.name}}</p>
+          </ion-item>
+      </ion-list>
+      <ion-list>
+          <ion-item class="chapterlst-content" ng-repeat="note in mynotes| filter: searchTerm" type="item-text-wrap" href="#/tab/chapters/{{note.id}}/{{searchTerm}}">
 
               <h2>{{note.id}}</h2>
               <p>{{note.notes}}</p>
 
           </ion-item>
       </ion-list>
-
+  -->
   </ion-content>
 </ion-view>
+
+
+
+

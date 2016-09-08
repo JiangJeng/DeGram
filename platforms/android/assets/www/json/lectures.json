@@ -2,6 +2,7 @@
   {
     "id": 1,
     "childlst":[1,2,3,4],
+    "style":"Chapter",
     "name": "Verben",
     "contents": [
       {
@@ -21,7 +22,8 @@
   },{
   "id": 2,
   "childlst":[],
-  "name": "Prasen Verben",
+  "style":"Section",
+  "name": "Präsens",
   "contents": [
     {
       "no":1,
@@ -35,7 +37,248 @@
     }
   ]
     },
-  {"id": 3,
-      "name": "Verben"
+  {
+    "id": 3,
+    "childlst":[],
+    "style":"Section",
+    "name": "Perfekt",
+    "contents": [
+      {
+        "no":1,
+        "form": "<table class=\"responstable\"><thead><tr><th></th><th>Singular</th><th>Plural</th></tr></thead><tbody><tr><td>1.Person</td><td>ich wohne</td><td>wir wohnen</td></tr><tr><td>2.Person</td><td>du wohnst</td><td>ihr wohnt</td></tr><tr><td>3.Person</td><td>er/es/sie wohnt</td><td>Sie/sie wohnen</td></tr></tbody></table>",
+        "comments": "Die Formen haben einen Verbstamm und eine Verbendung:<br> wohn- = Verbstamm, -e = Verbendung (ich wohne)."
+      },
+      {
+        "no":2,
+        "form": "sdfsdfsdfsdf2",
+        "comments": "comVerbenments2"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "childlst":[],
+    "style":"Section",
+    "name": "Präteritum",
+    "contents": [
+      {
+        "no":1,
+        "form": "<table class=\"responstable\"><thead><tr><th></th><th>Singular</th><th>Plural</th></tr></thead><tbody><tr><td>1.Person</td><td>ich wohne</td><td>wir wohnen</td></tr><tr><td>2.Person</td><td>du wohnst</td><td>ihr wohnt</td></tr><tr><td>3.Person</td><td>er/es/sie wohnt</td><td>Sie/sie wohnen</td></tr></tbody></table>",
+        "comments": "Die Formen haben einen Verbstamm und eine Verbendung:<br> wohn- = Verbstamm, -e = Verbendung (ich wohne)."
+      },
+      {
+        "no":2,
+        "form": "sdfsdfsdfsdf2",
+        "comments": "comVerbenments2"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "childlst":[],
+    "style":"Section",
+    "name": "Imperativ",
+    "contents": [
+      {
+        "no":1,
+        "form": "<table class=\"responstable\"><thead><tr><th></th><th>Singular</th><th>Plural</th></tr></thead><tbody><tr><td>1.Person</td><td>ich wohne</td><td>wir wohnen</td></tr><tr><td>2.Person</td><td>du wohnst</td><td>ihr wohnt</td></tr><tr><td>3.Person</td><td>er/es/sie wohnt</td><td>Sie/sie wohnen</td></tr></tbody></table>",
+        "comments": "Die Formen haben einen Verbstamm und eine Verbendung:<br> wohn- = Verbstamm, -e = Verbendung (ich wohne)."
+      },
+      {
+        "no":2,
+        "form": "sdfsdfsdfsdf2",
+        "comments": "comVerbenments2"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "childlst":[],
+    "style":"Section",
+    "name": "Konjunktiv",
+    "contents": [
+      {
+        "no":1,
+        "form": "<table class=\"responstable\"><thead><tr><th></th><th>Singular</th><th>Plural</th></tr></thead><tbody><tr><td>1.Person</td><td>ich wohne</td><td>wir wohnen</td></tr><tr><td>2.Person</td><td>du wohnst</td><td>ihr wohnt</td></tr><tr><td>3.Person</td><td>er/es/sie wohnt</td><td>Sie/sie wohnen</td></tr></tbody></table>",
+        "comments": "Die Formen haben einen Verbstamm und eine Verbendung:<br> wohn- = Verbstamm, -e = Verbendung (ich wohne)."
+      },
+      {
+        "no":2,
+        "form": "sdfsdfsdfsdf2",
+        "comments": "comVerbenments2"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "childlst":[],
+    "style":"Section",
+    "name": "Passiv",
+    "contents": [
+      {
+        "no":1,
+        "form": "<table class=\"responstable\"><thead><tr><th></th><th>Singular</th><th>Plural</th></tr></thead><tbody><tr><td>1.Person</td><td>ich wohne</td><td>wir wohnen</td></tr><tr><td>2.Person</td><td>du wohnst</td><td>ihr wohnt</td></tr><tr><td>3.Person</td><td>er/es/sie wohnt</td><td>Sie/sie wohnen</td></tr></tbody></table>",
+        "comments": "Die Formen haben einen Verbstamm und eine Verbendung:<br> wohn- = Verbstamm, -e = Verbendung (ich wohne)."
+      },
+      {
+        "no":2,
+        "form": "sdfsdfsdfsdf2",
+        "comments": "comVerbenments2"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "childlst":[8,9,10,11,12,13,14,15,16],
+    "style":"Chapter",
+    "name": "Nomen",
+    "contents": [
+      {
+        "no":1,
+        "form": "<table class=\"responstable\"><thead><tr><th></th><th>Singular</th><th>Plural</th></tr></thead><tbody><tr><td>1.Person</td><td>ich wohne</td><td>wir wohnen</td></tr><tr><td>2.Person</td><td>du wohnst</td><td>ihr wohnt</td></tr><tr><td>3.Person</td><td>er/es/sie wohnt</td><td>Sie/sie wohnen</td></tr></tbody></table>",
+        "comments": "Die Formen haben einen Verbstamm und eine Verbendung:<br> wohn- = Verbstamm, -e = Verbendung (ich wohne)."
+      },
+      {
+        "no":2,
+        "form": "sdfsdfsdfsdf2",
+        "comments": "comVerbenments2"
+      }
+    ]
+  }, {
+  "id": 9,
+  "childlst":[],
+  "style":"Section",
+  "name": "Nomen + bestimmter Artikel",
+  "contents": [
+    {
+      "no":1,
+      "form": "<table class=\"responstable\"><thead><tr><th></th><th>Singular</th><th>Plural</th></tr></thead><tbody><tr><td>1.Person</td><td>ich wohne</td><td>wir wohnen</td></tr><tr><td>2.Person</td><td>du wohnst</td><td>ihr wohnt</td></tr><tr><td>3.Person</td><td>er/es/sie wohnt</td><td>Sie/sie wohnen</td></tr></tbody></table>",
+      "comments": "Die Formen haben einen Verbstamm und eine Verbendung:<br> wohn- = Verbstamm, -e = Verbendung (ich wohne)."
+    },
+    {
+      "no":2,
+      "form": "sdfsdfsdfsdf2",
+      "comments": "comVerbenments2"
     }
+  ]
+}, {
+  "id": 10,
+  "childlst":[],
+  "style":"Section",
+  "name": "Pluralbildung",
+  "contents": [
+    {
+      "no":1,
+      "form": "<table class=\"responstable\"><thead><tr><th></th><th>Singular</th><th>Plural</th></tr></thead><tbody><tr><td>1.Person</td><td>ich wohne</td><td>wir wohnen</td></tr><tr><td>2.Person</td><td>du wohnst</td><td>ihr wohnt</td></tr><tr><td>3.Person</td><td>er/es/sie wohnt</td><td>Sie/sie wohnen</td></tr></tbody></table>",
+      "comments": "Die Formen haben einen Verbstamm und eine Verbendung:<br> wohn- = Verbstamm, -e = Verbendung (ich wohne)."
+    },
+    {
+      "no":2,
+      "form": "sdfsdfsdfsdf2",
+      "comments": "comVerbenments2"
+    }
+  ]
+}, {
+  "id": 11,
+  "childlst":[],
+  "style":"Section",
+  "name": "Feminine Berufsbezeichnungen auf -in, -innen",
+  "contents": [
+    {
+      "no":1,
+      "form": "<table class=\"responstable\"><thead><tr><th></th><th>Singular</th><th>Plural</th></tr></thead><tbody><tr><td>1.Person</td><td>ich wohne</td><td>wir wohnen</td></tr><tr><td>2.Person</td><td>du wohnst</td><td>ihr wohnt</td></tr><tr><td>3.Person</td><td>er/es/sie wohnt</td><td>Sie/sie wohnen</td></tr></tbody></table>",
+      "comments": "Die Formen haben einen Verbstamm und eine Verbendung:<br> wohn- = Verbstamm, -e = Verbendung (ich wohne)."
+    },
+    {
+      "no":2,
+      "form": "sdfsdfsdfsdf2",
+      "comments": "comVerbenments2"
+    }
+  ]
+},{
+  "id": 12,
+  "childlst":[],
+  "style":"Section",
+  "name": "Nomen + unbestimmter Artikel / negativer Artikel",
+  "contents": [
+    {
+      "no":1,
+      "form": "<table class=\"responstable\"><thead><tr><th></th><th>Singular</th><th>Plural</th></tr></thead><tbody><tr><td>1.Person</td><td>ich wohne</td><td>wir wohnen</td></tr><tr><td>2.Person</td><td>du wohnst</td><td>ihr wohnt</td></tr><tr><td>3.Person</td><td>er/es/sie wohnt</td><td>Sie/sie wohnen</td></tr></tbody></table>",
+      "comments": "Die Formen haben einen Verbstamm und eine Verbendung:<br> wohn- = Verbstamm, -e = Verbendung (ich wohne)."
+    },
+    {
+      "no":2,
+      "form": "sdfsdfsdfsdf2",
+      "comments": "comVerbenments2"
+    }
+  ]
+},{
+  "id": 13,
+  "childlst":[],
+  "style":"Section",
+  "name": "Nomen ohne Artike",
+  "contents": [
+    {
+      "no":1,
+      "form": "<table class=\"responstable\"><thead><tr><th></th><th>Singular</th><th>Plural</th></tr></thead><tbody><tr><td>1.Person</td><td>ich wohne</td><td>wir wohnen</td></tr><tr><td>2.Person</td><td>du wohnst</td><td>ihr wohnt</td></tr><tr><td>3.Person</td><td>er/es/sie wohnt</td><td>Sie/sie wohnen</td></tr></tbody></table>",
+      "comments": "Die Formen haben einen Verbstamm und eine Verbendung:<br> wohn- = Verbstamm, -e = Verbendung (ich wohne)."
+    },
+    {
+      "no":2,
+      "form": "sdfsdfsdfsdf2",
+      "comments": "comVerbenments2"
+    }
+  ]
+},{
+  "id": 14,
+  "childlst":[],
+  "style":"Section",
+  "name": "Possessivartikel",
+  "contents": [
+    {
+      "no":1,
+      "form": "<table class=\"responstable\"><thead><tr><th></th><th>Singular</th><th>Plural</th></tr></thead><tbody><tr><td>1.Person</td><td>ich wohne</td><td>wir wohnen</td></tr><tr><td>2.Person</td><td>du wohnst</td><td>ihr wohnt</td></tr><tr><td>3.Person</td><td>er/es/sie wohnt</td><td>Sie/sie wohnen</td></tr></tbody></table>",
+      "comments": "Die Formen haben einen Verbstamm und eine Verbendung:<br> wohn- = Verbstamm, -e = Verbendung (ich wohne)."
+    },
+    {
+      "no":2,
+      "form": "sdfsdfsdfsdf2",
+      "comments": "comVerbenments2"
+    }
+  ]
+},{
+  "id": 15,
+  "childlst":[],
+  "style":"Section",
+  "name": "Fragen mit welcher/welche/welches",
+  "contents": [
+    {
+      "no":1,
+      "form": "<table class=\"responstable\"><thead><tr><th></th><th>Singular</th><th>Plural</th></tr></thead><tbody><tr><td>1.Person</td><td>ich wohne</td><td>wir wohnen</td></tr><tr><td>2.Person</td><td>du wohnst</td><td>ihr wohnt</td></tr><tr><td>3.Person</td><td>er/es/sie wohnt</td><td>Sie/sie wohnen</td></tr></tbody></table>",
+      "comments": "Die Formen haben einen Verbstamm und eine Verbendung:<br> wohn- = Verbstamm, -e = Verbendung (ich wohne)."
+    },
+    {
+      "no":2,
+      "form": "sdfsdfsdfsdf2",
+      "comments": "comVerbenments2"
+    }
+  ]
+},{
+  "id": 16,
+  "childlst":[],
+  "style":"Section",
+  "name": "Zahlen",
+  "contents": [
+    {
+      "no":1,
+      "form": "<table class=\"responstable\"><thead><tr><th></th><th>Singular</th><th>Plural</th></tr></thead><tbody><tr><td>1.Person</td><td>ich wohne</td><td>wir wohnen</td></tr><tr><td>2.Person</td><td>du wohnst</td><td>ihr wohnt</td></tr><tr><td>3.Person</td><td>er/es/sie wohnt</td><td>Sie/sie wohnen</td></tr></tbody></table>",
+      "comments": "Die Formen haben einen Verbstamm und eine Verbendung:<br> wohn- = Verbstamm, -e = Verbendung (ich wohne)."
+    },
+    {
+      "no":2,
+      "form": "sdfsdfsdfsdf2",
+      "comments": "comVerbenments2"
+    }
+  ]
+}
   ]

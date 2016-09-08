@@ -1,0 +1,89 @@
+[
+  {
+    "id": 1,
+    "name": "Verben",
+    "childlst": [
+      {
+        "id": 1,
+        "name": "Überlick",
+        "status": 0
+      },
+      {
+        "id": 2,
+        "name": "Präsens",
+        "status": 0
+      },
+      {
+        "id": 3,
+        "name": "Perfekt",
+        "status": 0
+      },
+      {
+        "id": 4,
+        "name": "Präteritum",
+        "status": 0
+      },
+      {
+        "id": 5,
+        "name": "Imperativ",
+        "status": 0
+      },
+      {
+        "id": 6,
+        "name": "Konjunktiv",
+        "status": 0
+      },
+      {
+        "id": 7,
+        "name": "Passiv",
+        "status": 0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Nomen",
+    "childlst": [
+      {
+        "id": 8,
+        "name": "bestimmter Artikel+Nomen",
+        "status": 0
+      },
+      {
+        "id": 9,
+        "name": "unbestimmter Artikel / negativer Artikel",
+        "status": 0
+      },
+      {
+        "id": 10,
+        "name": "ohne Artike",
+        "status": 0
+      },
+      {
+        "id": 11,
+        "name": "Pluralbildung",
+        "status": 0
+      },
+      {
+        "id": 12,
+        "name": "Possessivartikel",
+        "status": 0
+      },
+      {
+        "id": 13,
+        "name": "Zahlen",
+        "status": 0
+      },
+      {
+        "id": 14,
+        "name": "Pluralbildung",
+        "status": 0
+      },
+      {
+        "id": 15,
+        "name": "Feminine Berufsbezeichnungen auf -in, -innen",
+        "status": 0
+      }
+    ]
+  }
+]

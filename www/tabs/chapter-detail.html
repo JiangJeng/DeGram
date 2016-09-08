@@ -5,35 +5,45 @@
   The Friends service returns an array of friend data
 -->
 
-<ion-view view-title="{{chapter.title}}" style="width: 100%">
-    <ion-content class="padding">
+<ion-view view-title="{{lecture.name}}" style="width: 100%">
+<ion-content>
+        <div class="list card">
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+                    <a class="tab-item" href="#/tab/chapters">
 
+                        <i class="icon ion-heart"></i> Home
 
-    <div class="row" width="device-width" >
-        <div ng-bind-html="lecture.name " ></div>
-    </div>
-        <div class="row" width="device-width" >
-            <div ng-bind-html="mynote|highlight:hlText"></div>
+                    </a>
+                    <a class="tab-item" href="#">
+
+                        <i class="icon ion-chatbox" ng-click="showPopup(lecture.id)"></i> Add Note
+
+                    </a>
+
+                    <a class="tab-item" href="#">
+
+                        <i class="icon ion-share"></i> Mark As learned
+
+                    </a>
+                    </div>
+            <div class="item item-body">
+                <ion-scroll direction="y" class="thenote">
+                    <p ng-bind-html="mynote |highlight:hlText">
+                    </p>
+                </ion-scroll>
+            </div>
         </div>
 
-        <!--
-<div class="row" width="device-width" >
-    <table width="100%">
+            <ion-scroll direction="y" class="theroot">
+                <table width="100%" >
+                    <tbody ng-repeat="content in lecture.contents" >
+                    <tr><td ng-bind-html="content.form | highlight:hlText"></td></tr>
+                    <tr><td ng-bind-html="content.comments | highlight:hlText"></td></tr>
+                    </tbody>
+                </table>
+            </ion-scroll>
 
-      <tbody ng-repeat="content in lecture.contents">
 
-      <tr><td ng-bind-html="content.form | highlight:'n'"></td></tr>
+    </ion-content>
 
-      <tr><td ng-bind-html="content.comments | highlight:'n'"></td></tr>
-      <tr><td><i class = "icon icon ion-happy-outline"></i>
-          <button type="button" ng-click="showPopup(lecture.id)" >Show Popup</button>
-
-      </td></tr>
-
-      </tbody>
-
-        </table>
-
--->
-  </ion-content>
 </ion-view>

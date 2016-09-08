@@ -63,7 +63,8 @@ angular.module('gramlist', ['ionic','gramlist.controllers', 'gramlist.services']
 
 
     .state('tab.chapter-detail', {
-      url: '/chapters/:chapterId',
+      url: '/chapters/:chapterId/:searchTerm',
+      params:{searchTerm:{value: ""}},
       views: {
         'tab-chapters': {
           templateUrl: 'tabs/chapter-detail.html',

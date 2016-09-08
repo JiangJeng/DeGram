@@ -22,6 +22,7 @@ angular.module('gramlist', ['ionic','gramlist.controllers', 'gramlist.services']
     }
 
   });
+
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -61,10 +62,20 @@ angular.module('gramlist', ['ionic','gramlist.controllers', 'gramlist.services']
       }
     })
 
+      .state('tab.search', {
+        cache: false,
+        url: '/search',
+        views: {
+          'tab-search': {
+            templateUrl: 'tabs/tab-search.html',
+            controller: 'SearchCtrl'
+          }
+        }
+      })
 
     .state('tab.chapter-detail', {
       url: '/chapters/:chapterId/:searchTerm',
-      params:{searchTerm:{value: "Verben"}},
+      params:{searchTerm:{value: ""}},
       views: {
         'tab-chapters': {
           templateUrl: 'tabs/chapter-detail.html',
